@@ -1,10 +1,12 @@
 import { Suspense } from "react";
 import "./App.css";
 import Batsman from "./Batsman";
-import Counter from "./Counter";
 import Users from "./User";
 import Friends from "./Friends";
 import Posts from "./Posts";
+import Players from "./Players";
+import Counter from "./Counter";
+import ShowHide from "./ShowHide";
 const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users").then(
   (res) => res.json(),
 );
@@ -32,6 +34,9 @@ function App() {
     <>
       <div className="">
         <h1>Vite + React</h1>
+        <ShowHide></ShowHide>
+        <Counter></Counter>
+        <Players></Players>
         <Suspense fallback={<p>Posts are loading...</p>}>
           <Posts postsPromise={postsPromise}></Posts>
         </Suspense>
@@ -42,7 +47,7 @@ function App() {
           <Friends friendsPromise={friendsPromise}></Friends>
         </Suspense>
         <Batsman></Batsman>
-        <Counter></Counter>
+
         <div>
           <button onClick={handleClick}>Click Me</button>
           <button
